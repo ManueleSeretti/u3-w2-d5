@@ -1,10 +1,11 @@
 import { Component, useState } from "react";
-import { Form, Button, Col, Row, Container } from "react-bootstrap";
+import { Form, Button, Col, Row, Container, Alert } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const [city, setCity] = useState("");
+  const [alert, setAlert] = useState(false);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -15,8 +16,12 @@ const Home = () => {
         "http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=1&appid=5e12cf9531aba87ddd2547a0227a136f"
       );
       const data = await resp.json();
-      const info = await data[0];
-      fetchMeteo(info);
+      if (data.length !== 0) {
+        const info = await data[0];
+        fetchMeteo(info);
+      } else {
+        setAlert(true);
+      }
     } catch (error) {}
   };
 
@@ -75,6 +80,11 @@ const Home = () => {
           </Col>
         </Row>
       </Form>
+      {alert && (
+        <Alert className="mt-5" variant="danger">
+          Il nome inserito non porta a nessun risultato
+        </Alert>
+      )}
     </Container>
   );
 };
