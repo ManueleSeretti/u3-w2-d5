@@ -59,7 +59,7 @@ const Home = () => {
 
   return (
     <Container>
-      <h1 className="text-danger mt-5">Cerca previsione nella tua città</h1>
+      <h1 className="text-info mt-5">Cerca previsione nella tua città</h1>
       <Form
         onSubmit={(e) => {
           e.preventDefault();

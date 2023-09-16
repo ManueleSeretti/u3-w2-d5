@@ -1,5 +1,5 @@
 body {
-  background-color: #ffc354;
+  background-color: #626270;
 }
 .App {
   text-align: center;
@@ -41,15 +41,24 @@ body {
 }
 .temp {
   font-size: 80px;
-  position: relative;
-  bottom: -90px;
-  left: -20px;
+  position: absolute;
+  bottom: 90px;
+  left: 80px;
 }
 .contenitore {
   border: 3px solid black;
   border-radius: 10px;
 }
 .bg-meteo {
-  background: rgb(250, 251, 63);
-  background: radial-gradient(circle, rgba(250, 251, 63, 1) 0%, rgba(252, 170, 70, 1) 100%);
+  background-image: url("./asset/sfondo.jpg");
+  background-size: cover;
+  /* background: rgb(250, 251, 63);
+  background: radial-gradient(circle, rgba(250, 251, 63, 1) 0%, rgba(252, 170, 70, 1) 100%); */
+}
+.span-descr {
+  background-color: #e5d5b7;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 50px;
+  height: 80px;
 }
